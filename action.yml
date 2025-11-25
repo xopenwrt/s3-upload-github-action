@@ -1,4 +1,4 @@
-name: "S3 Upload"
+name: "S3 Upload X"
 description: "Upload files and directories to S3 compatible cloud buckets"
 author: "Koray Koska <koray@koska.at>"
 runs:

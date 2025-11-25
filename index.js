@@ -7,7 +7,8 @@ const s3 = new aws.S3({
   endpoint: new aws.Endpoint(process.env.S3_ENDPOINT),
   accessKeyId: process.env.S3_ACCESS_KEY_ID,
   secretAccessKey: process.env.S3_SECRET_ACCESS_KEY,
-  signatureVersion: 'v4'
+  signatureVersion: 'v4',
+  s3ForcePathStyle: true
 });
 
 const s3Path = process.env.S3_PATH;

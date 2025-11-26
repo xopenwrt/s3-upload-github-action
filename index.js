@@ -8,7 +8,7 @@ aws.config.maxRetries = 6;
 aws.config.httpOptions = {
     timeout: 300000,          // 接收响应的超时时间
     connectTimeout: 60000     // 建立连接的超时时间
-}；
+};
 
 // https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/S3.html
 const s3 = new aws.S3({

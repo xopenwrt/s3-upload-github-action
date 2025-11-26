@@ -91,7 +91,7 @@ const uploadFile = async (fileName) => {
     let startTime = (new Date()).getTime();
 
     try {
-      let data = await s3.upload(params).promise();
+      let data = await s3.upload(params,options).promise();
       let uploadTimeSec = ((new Date()).getTime() - startTime) / 1000;
       let bytesPerSecond = Math.round(fileSizeBytes / uploadTimeSec);
       console.log(`Completed: ${data.Location} \n\t Speed: ${formatBytes(bytesPerSecond, decimals = 0)}/s`);

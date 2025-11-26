@@ -102,8 +102,12 @@ const uploadFile = async (fileName) => {
       console.log(`Completed: ${data.Location} \n\t Speed: ${formatBytes(bytesPerSecond, decimals = 0)}/s`);
       isUploading = false;
     }
-    catch (err) {
-      console.log(`FAILED!\n${err}`);
+catch (err) {
+      console.log(`FAILED!`);
+      console.error(err); 
+      console.log("错误名称:", err.name);
+      console.log("错误消息:", err.message);
+      console.log("堆栈跟踪:", err.stack);
       process.exit(1);
     }
   }

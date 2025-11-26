@@ -2,6 +2,14 @@ const aws = require("aws-sdk");
 const fs = require("fs");
 const path = require("path");
 
+aws.config.maxRetries = 6; 
+
+// 增加 HTTP 超时时间至 5 分钟 (300000ms)，以容纳大文件上传所需的时间
+aws.config.httpOptions = {
+    timeout: 300000,          // 接收响应的超时时间
+    connectTimeout: 60000     // 建立连接的超时时间
+}；
+
 // https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/S3.html
 const s3 = new aws.S3({
   endpoint: new aws.Endpoint(process.env.S3_ENDPOINT),
@@ -23,7 +31,7 @@ const s3Bucket = process.env.S3_BUCKET;
 const contentType = process.env.CONTENT_TYPE;
 const publicFiles = process.env.PUBLIC_FILES;
 
-var isUploading = false;
+var isUploading = false; 
 
 const sleep = (waitTimeInMs) => new Promise(resolve => setTimeout(resolve, waitTimeInMs));
 

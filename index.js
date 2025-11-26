@@ -13,7 +13,7 @@ const s3 = new aws.S3({
 
 const options = {
 //   partSize: 524288000, // 500 MB in bytes
-    partSize: 124288000,
+    partSize: 24288000,
     queueSize: 1
 };
 

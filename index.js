@@ -11,6 +11,11 @@ const s3 = new aws.S3({
   s3ForcePathStyle: true
 });
 
+const options = {
+    partSize: 524288000, // 500 MB in bytes
+    queueSize: 1
+};
+
 const s3Path = process.env.S3_PATH;
 const s3Acl = process.env.S3_ACL;
 const s3Bucket = process.env.S3_BUCKET;
